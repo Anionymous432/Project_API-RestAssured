@@ -5,32 +5,93 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>RestAssured</artifactId>
+    <artifactId>RestAssuredAPI</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>25</maven.compiler.source>
         <maven.compiler.target>25</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- Versions for test / API dependencies -->
+        <restassured.version>4.5.1</restassured.version>
+        <testng.version>7.8.0</testng.version>
+        <gson.version>2.10.1</gson.version>
+        <orgjson.version>20230227</orgjson.version>
+        <xerces.version>2.12.2</xerces.version>
     </properties>
+
     <dependencies>
+        <!-- Rest-Assured core for API testing -->
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
-            <version>6.0.0</version>
+            <version>${restassured.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- JSON path support (also available as part of rest-assured) -->
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>json-path</artifactId>
+            <version>${restassured.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- XML path support for Rest-Assured (if you need XML assertions) -->
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>xml-path</artifactId>
+            <version>${restassured.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- JSON Schema validator for Rest-Assured -->
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>json-schema-validator</artifactId>
+            <version>${restassured.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- TestNG for test execution -->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>7.12.0</version>
+            <version>${testng.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- org.json library for JSON manipulation (if needed) -->
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>2.1.0-alpha1</version>
-            <scope>compile</scope>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>${orgjson.version}</version>
+        </dependency>
+
+        <!-- Gson (Google JSON library) -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>${gson.version}</version>
+        </dependency>
+
+        <!-- scribjava-apis was a placeholder dependency and has been removed.
+             If you need a specific scribjava artifact, provide the exact
+             groupId:artifactId:version or I can add the correct coordinates
+             and repository (e.g., JitPack) for you. -->
+        <!-- Source: https://mvnrepository.com/artifact/com.github.scribejava/scribejava-apis -->
+        <dependency>
+            <groupId>com.github.scribejava</groupId>
+            <artifactId>scribejava-apis</artifactId>
+            <version>8.3.3</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- Xerces XML parser / validator (useful for XML Schema validation) -->
+        <dependency>
+            <groupId>xerces</groupId>
+            <artifactId>xercesImpl</artifactId>
+            <version>${xerces.version}</version>
         </dependency>
     </dependencies>
 
